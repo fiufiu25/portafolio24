@@ -342,7 +342,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className=" py-4">
-                  <p className=" text-center font-semibold">
+                  <p className=" text-center text-black font-semibold">
                     landing page utilizando React y Material-UI
                   </p>
                   <div className=" flex items-center gap-4 justify-center">
@@ -385,7 +385,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className=" py-4">
-                  <p className=" text-center font-semibold">
+                  <p className="  text-black text-center font-semibold">
                     Proyecto para una polleria hecho en next.js y tailwind.js
                   </p>
                   <div className=" flex items-center gap-4 justify-center">
@@ -421,7 +421,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className=" py-4">
-                  <p className=" text-center font-semibold">
+                  <p className=" text-black text-center font-semibold">
                     Proyecto para una restaurante hecho en react.js y materialUi
                   </p>
                   <div className=" flex items-center gap-4 justify-center">
