@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      scale: {
+        '102': '1.02', // Escala del 102% (aproximadamente 2px para elementos pequeños)
+      },
     },
   },
   plugins: [],

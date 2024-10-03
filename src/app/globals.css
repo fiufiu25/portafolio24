@@ -18,10 +18,123 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+   box-sizing: border-box;
+   margin: 0;
+}
+html{
+  scroll-behavior: smooth;
 }
 
+.custom-shape-divider-bottom-1726208112 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1726208112 svg {
+  position: relative;
+  display: block;
+  width: calc(129% + 1.3px);
+  height: 138px;
+}
+
+.custom-shape-divider-bottom-1726208112 .shape-fill {
+  fill:#F1F1F1 ;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+}
+.kills{
+  position: relative;
+  padding: 10px !important;
+   margin: 5px;
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 4/4;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  position: relative;
+  transition: 400ms;
+  cursor: pointer;
+}
+.kills img{
+  background-position: center;
+  width: 50px;
+  height: 50px;
+}
+.kills:hover .tooltip{
+  transition: 400ms;
+  opacity: 1;
+}
+.tooltip {
+  transition: 400ms;
+  opacity: 0;
+  background-color: black;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid black;
+  bottom: 90%;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.custom-shape-divider-top-1727836497 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1727836497 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1727836497 .shape-fill {
+  fill: #F1F1F1;
+}
+.killIcons{
+ box-shadow: 0px 0px 2px wheat;
+ width: 50px;
+ height: 50px;
+display: flex;
+justify-content: center; 
+animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
