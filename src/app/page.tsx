@@ -135,10 +135,10 @@ export default function Home() {
               <Image alt="conejito" src={conejito} layout="fill" />
               <div className=" cursor-pointer   absolute -right-16 top-[50%] translate-x-[-50%]">
                 <a
-                  href="/cvParvina.pdf" // El archivo está en la carpeta public
+                  href="/cvBonnie.pdf" // El archivo está en la carpeta public
                   target="_blank" // Abre en una nueva pestaña
                   rel="noopener noreferrer" // Seguridad para evitar acceso a la ventana principal
-                  className="  cursor-pointer font-semibold bg-gray-200   gap-2 p-2 items-center justify-center rounded-md shadow-md inline-flex"
+                  className="  cursor-pointer font-semibold bg-gray-200 text-black   gap-2 p-2 items-center justify-center rounded-md shadow-md inline-flex"
                 >
                   Download cv
                   <IoDocument
