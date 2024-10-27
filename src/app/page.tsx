@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/navbar";
 import { TypeAnimation } from "react-type-animation";
 import {
@@ -29,9 +29,27 @@ import dodo from "./assets/dodo.png";
 import restaurante from "./assets/restaurante.png";
 import materialUi from "./assets/materialui.svg";
 import miguel from "./assets/perfilMiguelfondo.png";
+import sodaLimon1 from "./assets/sodaLimon1.png"
+import sodaLimon2 from "./assets/sodaLimon2.png"
+import sodaLimon3 from "./assets/sodaLimon3.png"
+import sodaLimon4 from "./assets/sodaLimon4.png"
 import FixedWapp from "./components/fixedWapp";
 import moxom from "./assets/moxom.png";
 export default function Home() {
+    const images = [
+    { src: sodaLimon1,  },
+    { src: sodaLimon2,  }, 
+    { src: sodaLimon3,  },
+    {src:sodaLimon4}
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Cambia la imagen cada 3 segundos
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
   return (
     <>
       <header>
@@ -434,6 +452,43 @@ export default function Home() {
                     <Link
                       className=" shadow bg-white p-1 rounded-full"
                       href={"https://tiendabonnie.netlify.app/"}
+                    >
+                      <IoLink size={30} color="black" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
+              <Image
+                src={images[currentImageIndex].src} // Ruta de tu imagen
+                alt="sistema de pedidos"
+                layout="fill" // Hace que la imagen ocupe todo el contenedor
+                // Controla cómo se adapta la imagen
+              />
+              <div className=" absolute w-full h-[60px]  bottom-0 left-0 z-20 rounded   hover:bg-white/85  group-hover:h-[200px] hover:transition-all  p-2">
+                <div className=" flex justify-end gap-1  ">
+                  <div className=" flex  items-center gap-1  bg-black/30 p-2  rounded-tl-xl">
+                    <Image src={nest} width={30} height={30} alt="tailwind" />
+
+                    <Image src={tailwind} width={30} height={30} alt="next" />
+                    <Image src={next} width={30} height={30} alt="next" />
+                  </div>
+                </div>
+                <div className=" py-4">
+                  <p className=" text-black text-center font-semibold">
+                    Proyecto full stack Un sistema de inventario donde podrás agregar productos, vender y descargar comprobantes de pago.
+                  </p>
+                  <div className=" flex items-center gap-4 justify-center">
+                    <Link
+                      className=" shadow bg-white p-1 rounded-full"
+                      href={"https://github.com/fiufiu25/soda-limon-produccion"}
+                    >
+                      <IoLogoGithub size={30} color="black" />
+                    </Link>
+                    <Link
+                      className=" shadow bg-white p-1 rounded-full"
+                      href={"https://soda-limon-produccion.vercel.app/"}
                     >
                       <IoLink size={30} color="black" />
                     </Link>
