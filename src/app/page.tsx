@@ -405,7 +405,7 @@ export default function Home() {
               {verVIdeo && (
                 <div className=" fixed z-50 top-0 left-0 w-full h-screen bg-white/90 flex  justify-center items-center">
                   <div
-                    className=" absolute  right-4  top-4 bg-white rounded-full p-1 shadow-md"
+                    className=" absolute  cursor-pointer right-4  top-4 bg-white rounded-full p-1 shadow-md"
                     onClick={() => setVerVideo(false)}
                   >
                     <IoClose size={30} color="black" />
