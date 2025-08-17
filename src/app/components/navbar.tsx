@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className=" bg-black  backdrop-blur-xl w-full  flex justify-between items-center max-w-[1200px]   rounded-lg  px-8 py-4">
           <div>
             <p className=" text-xl text-white  font-bold">
-              Bonnie <span className=" text-cyan-500">Dev</span>
+              Miguel <span className=" text-cyan-500">Dev</span>
             </p>
           </div>
           <nav className=" hidden lg:block">

@@ -46,6 +46,12 @@ import sodaLimon4 from "./assets/sodaLimon4.png";
 import FixedWapp from "./components/fixedWapp";
 import moxom from "./assets/moxom.png";
 import ReactPlayer from "react-player";
+import VideoComponent from "./components/VideoComponent";
+import smartHotel1 from "./assets/smartHotel1.jpg";
+import smartHotel2 from "./assets/smartHotel2.jpg";
+import smartMedic1 from "./assets/smartMedic1.jpg";
+import smartMedic2 from "./assets/smartMedic2.jpg";
+
 export default function Home() {
   const veterinaria = [
     { src: veterinaria1 },
@@ -54,15 +60,25 @@ export default function Home() {
     { src: veterinaria4 },
     { src: veterinaria5 },
   ];
-  const images = [
-    { src: sodaLimon1 },
-    { src: sodaLimon2 },
-    { src: sodaLimon3 },
-    { src: sodaLimon4 },
-    { src: sodaLimon1 },
+  const smartHotel = [
+    {
+      src: smartHotel1,
+    },
+    {
+      src: smartHotel2,
+    },
   ];
+  const smartMedic = [
+    {
+      src: smartMedic1,
+    },
+    { src: smartMedic2 },
+  ];
+  const images = [{ src: sodaLimon1 }, { src: sodaLimon2 }];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [verVIdeo, setVerVideo] = useState(false);
+  const [verVideo1, setVerVideo1] = useState(false);
+  const [verVideo2, setVerVideo2] = useState(false);
+  const [verVideo3, setVerVideo3] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -79,7 +95,7 @@ export default function Home() {
         <div className="px-5 py-40 z-10 lg:px-40 min-h-[100vh] flex  justify-center xl:justify-between  flex-wrap-reverse  items-center w-full gap-3 relative bg-gradient-to-t from-[#140030]  to-black">
           <div className="  mt-16 lg:mt-0">
             <h1 className=" text-center font-bold  text-xl md:text-5xl text-white">
-              ¡Hola! Soy Bonnie <span className=" text-[#00FFFF]">Dev</span>
+              ¡Hola! Soy Miguel <span className=" text-[#00FFFF]">Dev</span>
             </h1>
             <TypeAnimation
               sequence={[
@@ -173,7 +189,7 @@ export default function Home() {
               <Image alt="conejito" src={conejito} layout="fill" />
               <div className=" cursor-pointer   absolute -right-16 top-[50%] translate-x-[-50%]">
                 <a
-                  href="/cvBonnie.pdf" // El archivo está en la carpeta public
+                  href="/Parvina.cv.pdf" // El archivo está en la carpeta public
                   target="_blank" // Abre en una nueva pestaña
                   rel="noopener noreferrer" // Seguridad para evitar acceso a la ventana principal
                   className="  cursor-pointer font-semibold bg-gray-200 text-black   gap-2 p-2 items-center justify-center rounded-md shadow-md inline-flex"
@@ -240,6 +256,15 @@ export default function Home() {
                 back-end permite la integración fluida del diseño y la
                 funcionalidad, garantizando aplicaciones impactantes y
                 atractivas.
+              </p>
+              <h6 className="text-xl text-cyan-500 font-bold my-2  ">
+                Experiencia
+              </h6>
+              <p className="my-2  text-white">
+                Con más de 2 años de experiencia, he trabajado en proyectos
+                diversos, desde aplicaciones web hasta sistemas de gestión
+                empresarial, siempre buscando la excelencia y la innovación.
+                Tambien desarrollo aplicaciones moviles con React Native
               </p>
               <h6 className="text-xl text-cyan-500 font-bold my-2  ">
                 Herramientas
@@ -361,7 +386,7 @@ export default function Home() {
           <div className=" justify-center  gap-6   flex-wrap flex items-center">
             <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
               <Image
-                src={veterinaria[currentImageIndex].src} // Ruta de tu imagen
+                src={veterinaria[currentImageIndex]?.src} // Ruta de tu imagen
                 alt="moxom"
                 layout="fill" // Hace que la imagen ocupe todo el contenedor
                 // Controla cómo se adapta la imagen
@@ -387,14 +412,45 @@ export default function Home() {
                     usando arquitectura mvc , y clean code
                   </p>
                   <div className=" flex items-center gap-4 justify-center">
-                    <Link
-                      className=" shadow bg-white p-1 rounded-full"
-                      href={"https://github.com/fiufiu25/backendVeterinaria"}
-                    >
-                      <IoLogoGithub size={30} color="black" />
-                    </Link>
                     <div
-                      onClick={() => setVerVideo(true)}
+                      onClick={() => setVerVideo1(true)}
+                      className=" cursor-pointer shadow bg-white p-1 rounded-full"
+                    >
+                      <IoLink size={30} color="black" />
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              {verVideo1 && (
+                <VideoComponent
+                  setVerVideo={setVerVideo1}
+                  url={"/veterinaria.mp4"}
+                />
+              )}
+            </div>
+            <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
+              <Image
+                src={smartHotel[currentImageIndex]?.src} // Ruta de tu imagen
+                alt="moxom"
+                layout="fill" // Hace que la imagen ocupe todo el contenedor
+                // Controla cómo se adapta la imagen
+              />
+              <div className=" absolute w-full h-[60px]  bottom-0 left-0 z-20 rounded   hover:bg-white/85  group-hover:h-[200px] hover:transition-all  p-2">
+                <div className=" flex justify-end gap-1  ">
+                  <div className=" flex  items-center gap-1  bg-black/30 p-3  rounded-tl-xl">
+                    <Image src={react} width={30} height={30} alt="react" />
+                  </div>
+                </div>
+                <div className=" py-4">
+                  <p className=" text-center text-black font-semibold">
+                    Aplicación móvil desarrollada en la empresa para reservar
+                    habitaciones de hotel, implementando arquitectura limpia y
+                    buenas prácticas.
+                  </p>
+                  <div className=" flex items-center gap-4 justify-center">
+                    <div
+                      onClick={() => setVerVideo2(true)}
                       className=" cursor-pointer shadow bg-white p-1 rounded-full"
                     >
                       <IoLink size={30} color="black" />
@@ -402,17 +458,55 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {verVIdeo && (
-                <div className=" fixed z-50 top-0 left-0 w-full h-screen bg-white/90 flex  justify-center items-center">
-                  <div
-                    className=" absolute  cursor-pointer right-4  top-4 bg-white rounded-full p-1 shadow-md"
-                    onClick={() => setVerVideo(false)}
-                  >
-                    <IoClose size={30} color="black" />
-                  </div>
+              {verVideo2 && (
+                <VideoComponent
+                  setVerVideo={setVerVideo2}
+                  url={"/smartHotel.mp4"}
+                />
+              )}
+            </div>
+            <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
+              <Image
+                src={smartMedic[currentImageIndex]?.src} // Ruta de tu imagen
+                alt="moxom"
+                layout="fill" // Hace que la imagen ocupe todo el contenedor
+                // Controla cómo se adapta la imagen
+              />
+              <div className=" absolute w-full h-[60px]  bottom-0 left-0 z-20 rounded   hover:bg-white/85  group-hover:h-[200px] hover:transition-all  p-2">
+                <div className=" flex justify-end gap-1  ">
+                  <div className=" flex  items-center gap-1  bg-black/30 p-3  rounded-tl-xl">
+                    <Image
+                      src={tailwind}
+                      width={30}
+                      height={30}
+                      alt="tailwind"
+                    />
 
-                  <ReactPlayer controls url={"/veterinaria.mp4"} />
+                    <Image src={react} width={30} height={30} alt="react" />
+                    <Image src={nest} width={30} height={30} alt="nest" />
+                    <Image src={typeOrm} width={30} height={30} alt="typeOrm" />
+                  </div>
                 </div>
+                <div className=" py-4">
+                  <p className=" text-center text-black font-semibold">
+                    Aplicación para reservar citas médicas, crear historias
+                    clínicas y generar PDF de reportes.
+                  </p>
+                  <div className=" flex items-center gap-4 justify-center">
+                    <div
+                      onClick={() => setVerVideo3(true)}
+                      className=" cursor-pointer shadow bg-white p-1 rounded-full"
+                    >
+                      <IoLink size={30} color="black" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {verVideo3 && (
+                <VideoComponent
+                  setVerVideo={setVerVideo3}
+                  url={"/smartMedic.mp4"}
+                />
               )}
             </div>
 
@@ -493,8 +587,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
-            <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
+
+            {/* <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
               <Image
                 src={moxom} // Ruta de tu imagen
                 alt="moxom"
@@ -536,10 +630,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className=" relative group transition-all duration-1000     w-[400px] h-[200px] bg-slate-200 shadow rounded-md overflow-hidden   after:bg-black/5 after:absolute  after:top-0 after:left-0 after:w-full after:h-full shadow-black">
               <Image
-                src={images[currentImageIndex].src} // Ruta de tu imagen
+                src={images[currentImageIndex]?.src} // Ruta de tu imagen
                 alt="sistema de pedidos"
                 layout="fill" // Hace que la imagen ocupe todo el contenedor
                 // Controla cómo se adapta la imagen
